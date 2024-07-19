@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    <title>Microchip MASTERs Smart Wireless Thermostat</title> 	
+	<script src="utils.js"></script>
+	<script src="Thermostat_helper.js"></script>	
+	<!-- Include the charts for JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>	
+	<!-- Include the AWS SDK for JavaScript -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.977.0.min.js"></script>
+	 <style>
+        .chart-container {
+            width: 500px; /* Adjust the width as needed */
+            height: 250px; /* Adjust the height as needed */
+            margin: 40px auto;
+			//margin-top: 100px;
+        }
+		
+		.charts-wrapper {
+            display: flex;
+            justify-content: center; /* Center the charts horizontally */
+            align-items: flex-start; /* Align the charts at the top */
+        }
+		
+		.title {
+            font-size: 2em;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+		
+		.image-container {
+            margin-top: 20px;
+			object-fit: cover;
+			display: flex;
+            justify-content: center;			
+        }
+		
+        .image-container img {
+            width: 100%;
+            max-width: 100%;
+            height: 360px;
+		}
+		
+		 .dropdown-container {
+            margin-top: 0px;
+			display: inline-block; 
+			justify-content: center;
+		}
+		
+        select {
+            padding: 5px;
+            font-size: 1em;
+			justify-content: center;
+        }
+		
+		.button-container {
+            display: inline-block; /* Display as inline-block */
+            vertical-align: top; /* Align to the top of the container */
+			justify-content: center;
+        }
+		
+		button {
+            padding: 5px 20px;
+            font-size: 1em;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        } 	
+		
+		.value {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+			text-align: center;
+        }
+		
+		.space-between-elements {
+			display: inline-block;
+			margin-left: 150px; /* Adjust this value as needed */			
+		}		
+		
+		.form{
+			dispaly : flex;
+			margin-top : 100px;
+			vertical-align : top;
+			justify-content: center;
+			font-size: 18px;
+			}
+
+        #temperatureChart {
+            width: 100% !important;
+            height: 100% !important;
+			margin-bottom: 10px;
+        }
+		
+		#startStopButtons {
+            display: none; /* Initially hide the start and stop buttons */
+			text-align: center; /* Center the text within the container */
+            margin-top: 20px;
+        }
+		#startStopButtons button {
+            margin: 0 10px; /* Add some space between the buttons */
+        }
+		
+     </style>	
+</head>
+
+
+<body>    		
+	<div class="image-container">
+        <img src="https://rnwfthermostatbucket.s3.us-east-2.amazonaws.com/MASTERs2024_logo1.JPG" alt="MASTERs 2024 Thermostat">		
+		<img src="https://rnwfthermostatbucket.s3.us-east-2.amazonaws.com/MASTERs2024_logo2.jpg" alt="MASTERs 2024 Thermostat">			
+    </div>	
+	
+	<h1 class=title>SensorWatch : Temperature and Light Data Hub</h1>
+	<div class="inline-container">
+        <div class="dropdown-container">
+			<label for="deviceIdInput">Select Device ID:</label>			
+				<!--select id="dropdown" onchange="fetchData()"></select-->	
+				<select id="dropdown" onchange="startInterval()"></select>	
+		</div>
+		
+		
+		<!--div class="space-between-elements">
+			<label for="program-number">Push to IoT Device :</label>
+			<input type="text" id="program-number" name="program-number">
+			<div class="button-container">
+				<button onclick="senddata()">Send</button>	
+			</div>			
+		</div-->
+		
+	</div>	
+	
+	
+	<!--div class="form">	
+		<form id="uploadForm">
+		<input type="file" id="fileInput" accept=".py">
+		<button type="button" onclick="uploadFile()">Upload</button>
+		</form>
+	</div-->
+	
+	<div id="temperatureDisplay"></div>
+	<div id="LightDisplay"></div>
+	
+	<div class="charts-wrapper">
+        <div class="chart-container">
+			<div class="value">Current Temperature: <span id="currentTemperature">--</span>°C</div>
+            <canvas id="temperatureChart"></canvas>
+        </div>
+        <div class="chart-container">
+			<div class="value">Current Light: <span id="currentLight">--</span> lx</div>
+            <canvas id="LightChart"></canvas>
+        </div>
+    </div>
+	
+	<div id="startStopButtons">
+        <!--button id="startButton">Plot Graph</button-->
+        <button id="stopButton">Stop</button>
+    </div>
+	
+	
+	<script>
+		updateDropdown();
+        // Initialize AWS SDK
+        AWS.config.region = 'us-east-2'; // Replace with your AWS region
+        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: 'us-east-2:9aa44f79-6907-46a6-8970-c453311f9231'// Replace with your Cognito identity pool ID
+        });
+        var lambda = new AWS.Lambda();
+		var lastId = null;
+		var intervalId = null;
+		var firstTimestamp = null;
+		var Lasttime=null;
+		var timestamp1=null;
+		var Thingname=null;		
+		var s3 = new AWS.S3();
+		
+		
+		document.addEventListener('DOMContentLoaded', (event) => {
+         // Select the title element
+        const titleElement = document.querySelector('.title');            
+         // Change the style of the title element
+         titleElement.style.color = 'blue';
+         titleElement.style.fontSize = '3em';
+         titleElement.style.textShadow = '2px 2px 4px #aaa';
+		});
+		
+		function computeRelativeTime(timestamp) {
+			if (firstTimestamp === null) {
+				firstTimestamp = timestamp;
+		}
+			return (timestamp - firstTimestamp) / 1000; // Convert milliseconds to seconds
+		}
+		
+		
+		/*Start plotting the graphs*/
+		function startInterval() {
+            if (!intervalId) { // Ensure only one interval is running
+                intervalId = setInterval(fetchData, 1000);
+            }
+        }
+		
+	
+		/*Stop Plotting the graphs*/
+        function stopInterval() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+		
+		
+		function senddata(){
+			var programinput = document.getElementById('program-number').value;
+			if(programinput!=0)
+			{
+				var params = {
+                FunctionName: 'sensor_publish_command', // Replace with your Lambda function name
+                InvocationType: 'RequestResponse',
+                Payload: JSON.stringify({ thingName:Thingname , number:programinput})
+            };
+			}
+			
+			lambda.invoke(params, function(err, data) {
+                if (err) {
+                    console.error('Error:', err);
+                } else {
+				console.log("Publish Success");
+				}
+				});
+		}
+		
+		
+        // Function to fetch temperature data from Lambda function
+        function fetchData() {           
+		    Thingname = document.getElementById('dropdown').value;
+				
+			if(Thingname!="No Device"){
+			document.getElementById('startStopButtons').style.display = 'block'; 
+			//document.getElementById('startButton').addEventListener('click', startInterval);
+            document.getElementById('stopButton').addEventListener('click', stopInterval);			
+			if(lastId!=Thingname){
+			lastId=Thingname;
+			resetChart(window.myLine);
+			resetChart(window.myLine2);
+			firstTimestamp=null;
+			Lasttime=null;
+			}
+            var params = {
+                FunctionName: 'sensor_data_fetch', // Replace with your Lambda function name
+                InvocationType: 'RequestResponse',
+                Payload: JSON.stringify({ DeviceID:Thingname})
+            };
+            lambda.invoke(params, function(err, data) {
+                if (err) {
+                    console.error('Error:', err);
+                } else {
+					let brightness=null;
+                    var responsePayload = JSON.parse(data.Payload);
+					console.log('Lambda Response:', data);
+					console.log('Lambda Response:', responsePayload);					
+					var body = responsePayload.body;
+					var temperature = body.temperature;
+					var light= body.light;					
+					var timestamp=body.timestamp;
+					if((Lasttime==timestamp))
+					{	
+						console.log("hello");						
+					}	
+					
+					else{	
+						timestamp1=(timestamp-Lasttime)+timestamp1;
+						Lasttime=timestamp;						
+						console.log('temp:', temperature);
+						console.log('Thingname:',Thingname);
+						console.log('light:',light);
+						console.log('timestamp:',timestamp);						
+						displayIotdata(temperature,light,timestamp1,brightness);
+					}
+                }
+            });
+			}
+			else{
+			alert('Please select a valid IoT device name.');
+			clearInterval(intervalId);
+            intervalId = null;
+			lastId=null;
+			document.getElementById('currentTemperature').textContent= "--";
+			document.getElementById('currentLight').textContent = "--";
+			resetChart(window.myLine);
+			resetChart(window.myLine2);
+			}
+        }		
+
+        // Function to display temperature data in the HTML page
+        function displayIotdata(temperature,light,timestamp,brightness) {
+            var temperatureDisplay = document.getElementById('temperatureDisplay');          
+			document.getElementById('currentTemperature').textContent= temperature;
+			document.getElementById('currentLight').textContent = light;
+			var relativeTime = computeRelativeTime(timestamp);
+			addData(window.myLine, relativeTime, temperature);	
+			addData(window.myLine2,relativeTime,light);
+        }
+		
+		// Not supported in current dashoard
+		function uploadFile() {
+            var fileInput = document.getElementById('fileInput');
+            var file = fileInput.files[0];
+
+            if (!file) {
+                alert('Please select a file to upload.');
+                return;
+            }
+
+            var params = {
+                Bucket: 'rnwfthermostatbucket', // Replace with your S3 bucket name
+                Key: 'scripts/' + file.name,
+                Body: file,
+                ContentType: 'text/x-python-script'
+            };
+
+            s3.upload(params, function(err, data) {
+                if (err) {
+                    console.error('Error uploading file:', err);
+                } else {
+                    console.log('Successfully uploaded file to S3:', data);
+                    alert('File uploaded successfully.');
+                    invokeLambdaForProcessing(file.name);
+                }
+            });
+        }
+
+        // Function to invoke a Lambda function after uploading a file. Not supported in current dashboard
+        function invokeLambdaForProcessing(fileName) {
+            var params = {
+                FunctionName: 'sensor_publish_script', // Replace with your Lambda function name
+                InvocationType: 'RequestResponse',
+                Payload: JSON.stringify({ fileName: fileName })
+            };
+
+            lambda.invoke(params, function(err, data) {
+                if (err) {
+                    console.error('Error invoking Lambda function:', err);
+                } else {
+                    console.log('Successfully invoked Lambda function:', data);
+                }
+            });
+        }
+		
+    </script>
+</body>
+</html>
