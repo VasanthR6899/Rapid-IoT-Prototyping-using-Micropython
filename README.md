@@ -1,1 +1,0 @@
-# Rapid-IoT-Prototyping-using-Micropython
