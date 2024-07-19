@@ -18,5 +18,5 @@
 		 
 > Once you are in the command line mode, pressing "CTRL + C" will help you get out of the command line mode
 
-		 >> To be completed .....
+		 >> Pin Settings, Peripheral details implemented would be covered here
 
