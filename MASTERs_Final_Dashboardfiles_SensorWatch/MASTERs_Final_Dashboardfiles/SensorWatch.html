@@ -113,8 +113,8 @@
 
 <body>    		
 	<div class="image-container">
-        <img src="https://rnwfthermostatbucket.s3.us-east-2.amazonaws.com/MASTERs2024_logo1.JPG" alt="MASTERs 2024 Thermostat">		
-		<img src="https://rnwfthermostatbucket.s3.us-east-2.amazonaws.com/MASTERs2024_logo2.jpg" alt="MASTERs 2024 Thermostat">			
+        <img src="https://xxxbucket.s3.us-east-2.amazonaws.com/MASTERs2024_logo1.JPG" alt="MASTERs 2024 Thermostat">// Replace with your logo S3 bucket url
+		<img src="https://xxxbucket.s3.us-east-2.amazonaws.com/MASTERs2024_logo2.jpg" alt="MASTERs 2024 Thermostat">// Replace with your logo S3 bucket url	
     </div>	
 	
 	<h1 class=title>SensorWatch : Temperature and Light Data Hub</h1>
@@ -169,7 +169,7 @@
         // Initialize AWS SDK
         AWS.config.region = 'us-east-2'; // Replace with your AWS region
         AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-            IdentityPoolId: 'us-east-2:9aa44f79-6907-46a6-8970-c453311f9231'// Replace with your Cognito identity pool ID
+            IdentityPoolId: '                        '// Enter your Cognito identity pool ID
         });
         var lambda = new AWS.Lambda();
 		var lastId = null;
