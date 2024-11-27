@@ -77,7 +77,7 @@ typedef struct _machine_uart_obj_t {
 } machine_uart_obj_t;
 
 STATIC const char *_parity_name[] = {"None", "1", "0"};
-static uint32_t baudrate = 230400;
+static uint32_t baudrate = 115200;
 
 /******************************************************************************/
 // MicroPython bindings for UART

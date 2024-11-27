@@ -2693,7 +2693,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_RTOS_TASK_2_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;8192&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;9216&quot;/&gt;
     &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
@@ -5886,39 +5886,39 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;554&quot; canvasWidth=&quot;887&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;554&quot; canvasWidth=&quot;1222&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;PowerProfiles dnOrder=&quot;1&quot;&gt;
       &lt;Profile dnOrder=&quot;0&quot; id=&quot;profile0&quot; name=&quot;Main&quot;/&gt;
     &lt;/PowerProfiles&gt;
     &lt;ComponentGraph dnOrder=&quot;2&quot; id=&quot;__ROOTVIEW&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;BSP_SAM_E54_Xplained_Pro&quot; x=&quot;416&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;BSP_SAM_E54_Xplained_Pro&quot; x=&quot;425&quot; y=&quot;21&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;FreeRTOS&quot; x=&quot;171&quot; y=&quot;207&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;HarmonyCore&quot; x=&quot;30&quot; y=&quot;120&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;adc0&quot; x=&quot;750&quot; y=&quot;153&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;HarmonyCore&quot; x=&quot;10&quot; y=&quot;106&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;adc0&quot; x=&quot;1085&quot; y=&quot;152&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;adc1&quot; x=&quot;138&quot; y=&quot;442&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;cmsis&quot; x=&quot;390&quot; y=&quot;60&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;core&quot; x=&quot;340&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;cmsis&quot; x=&quot;435&quot; y=&quot;60&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;core&quot; x=&quot;330&quot; y=&quot;24&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;dfp&quot; x=&quot;170&quot; y=&quot;80&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;drv_memory&quot; x=&quot;267&quot; y=&quot;289&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;drv_memory&quot; x=&quot;290&quot; y=&quot;263&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;drv_sst26&quot; x=&quot;139&quot; y=&quot;312&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;drv_usbfs_v1&quot; x=&quot;210&quot; y=&quot;120&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;evsys&quot; x=&quot;180&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;nvmctrl&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;qspi&quot; x=&quot;0&quot; y=&quot;351&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;rtc&quot; x=&quot;394&quot; y=&quot;97&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sercom2&quot; x=&quot;560&quot; y=&quot;335&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;rtc&quot; x=&quot;431&quot; y=&quot;97&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sercom2&quot; x=&quot;679&quot; y=&quot;320&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sercom3&quot; x=&quot;0&quot; y=&quot;429&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;sercom5&quot; x=&quot;268&quot; y=&quot;445&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;sercom7&quot; x=&quot;700&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;sys_command&quot; x=&quot;430&quot; y=&quot;460&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;20&quot; id=&quot;sys_console&quot; x=&quot;698&quot; y=&quot;241&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;21&quot; id=&quot;sys_debug&quot; x=&quot;664&quot; y=&quot;431&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;22&quot; id=&quot;sys_fs&quot; x=&quot;431&quot; y=&quot;341&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;23&quot; id=&quot;sys_time&quot; x=&quot;535&quot; y=&quot;60&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;24&quot; id=&quot;tc0&quot; x=&quot;595&quot; y=&quot;176&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;25&quot; id=&quot;usb_device&quot; x=&quot;1&quot; y=&quot;241&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;26&quot; id=&quot;usb_device_msd&quot; x=&quot;408&quot; y=&quot;187&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;sercom7&quot; x=&quot;1083&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;sys_command&quot; x=&quot;1210&quot; y=&quot;332&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;20&quot; id=&quot;sys_console&quot; x=&quot;1004&quot; y=&quot;241&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;21&quot; id=&quot;sys_debug&quot; x=&quot;1148&quot; y=&quot;483&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;22&quot; id=&quot;sys_fs&quot; x=&quot;603&quot; y=&quot;468&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;23&quot; id=&quot;sys_time&quot; x=&quot;820&quot; y=&quot;60&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;24&quot; id=&quot;tc0&quot; x=&quot;650&quot; y=&quot;122&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;25&quot; id=&quot;usb_device&quot; x=&quot;7&quot; y=&quot;216&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;26&quot; id=&quot;usb_device_msd&quot; x=&quot;469&quot; y=&quot;182&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
   &lt;/UserData&gt;
@@ -16833,7 +16833,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sercom2" name="USART_RX_RING_BUFFER_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sercom2&gt;
   &lt;sercom2 dnOrder=&quot;0&quot; id=&quot;USART_RX_RING_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;4098&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sercom2&gt;
 &lt;/sercom2&gt;
 </value>
@@ -16924,7 +16931,7 @@
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;300&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;4098&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sercom2&gt;
 &lt;/sercom2&gt;
@@ -19158,7 +19165,7 @@
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;512&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;4098&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sercom5&gt;
 &lt;/sercom5&gt;
@@ -19244,7 +19251,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sercom5" name="USART_TX_RING_BUFFER_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sercom5&gt;
   &lt;sercom5 dnOrder=&quot;0&quot; id=&quot;USART_TX_RING_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;4098&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sercom5&gt;
 &lt;/sercom5&gt;
 </value>
@@ -20824,6 +20838,45 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_console_0&gt;
   &lt;sys_console_0 dnOrder=&quot;0&quot; id=&quot;SYS_CONSOLE_TX_BUFFER_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/sys_console_0&gt;
+&lt;/sys_console_0&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_console_0" name="SYS_CONSOLE_UART_DEFINITIONS_HEADER"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_console_0&gt;
+  &lt;sys_console_0 dnOrder=&quot;0&quot; id=&quot;SYS_CONSOLE_UART_DEFINITIONS_HEADER&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/sys_console_0&gt;
+&lt;/sys_console_0&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_console_0" name="SYS_CONSOLE_UART_HEADER"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_console_0&gt;
+  &lt;sys_console_0 dnOrder=&quot;0&quot; id=&quot;SYS_CONSOLE_UART_HEADER&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/sys_console_0&gt;
+&lt;/sys_console_0&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_console_0" name="SYS_CONSOLE_UART_SOURCE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_console_0&gt;
+  &lt;sys_console_0 dnOrder=&quot;0&quot; id=&quot;SYS_CONSOLE_UART_SOURCE&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
   &lt;/sys_console_0&gt;
 &lt;/sys_console_0&gt;
 </value>
@@ -23725,7 +23778,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\definitions.h</file>
-         <hash>de2f40db45993cc4e10d4e42e8a49b33f9d044763a4acdc7e18f57ada6851d4c</hash>
+         <hash>5a041c1365596694de7b70e7ed6c6cccda86d9874d708aea8034067beed2bb3c</hash>
       </entry>
       <entry>
          <file>..\src\config\default\device.h</file>
@@ -23761,7 +23814,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\driver\memory\src\drv_memory.c</file>
-         <hash>808d43318deace95edc80d3ccbadfcfff5298b35a2e705be7ac5fcae1d7f8c98</hash>
+         <hash>1922248aa8310ad78b6ac1e65a01e87d9a3d3e8ed5a5bebfbd9b198d66ce81ec</hash>
       </entry>
       <entry>
          <file>..\src\config\default\driver\memory\src\drv_memory_file_system.c</file>
@@ -23969,7 +24022,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\sercom\usart\plib_sercom2_usart.c</file>
-         <hash>d64e6f97ee7070590af10d319598665cdeffebfab63cc7bd3154bd98ff51af92</hash>
+         <hash>67ba059a76cc9109923c43360e16ed764137cebc6f72220f8e890638fea11eee</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\sercom\usart\plib_sercom2_usart.h</file>
@@ -23977,7 +24030,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\sercom\usart\plib_sercom5_usart.c</file>
-         <hash>0779efb2bf310ebf51d424d4777dda787ee258b283a5381ddb4cf2c20b8c194c</hash>
+         <hash>c3974bd6af4082ab212c56f466a5dbb42b184b7a10ab141b932f6b4d089d6a06</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\sercom\usart\plib_sercom5_usart.h</file>
@@ -24025,7 +24078,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\system\command\src\sys_command.c</file>
-         <hash>e13dfdfba00c4c9b65ef425ae0a568913d754b64e58bda03f37627b23bf9659a</hash>
+         <hash>84360285206bc304af70cc0b29fea061345ba6e27674613b5bb947da9fda0768</hash>
       </entry>
       <entry>
          <file>..\src\config\default\system\command\sys_command.h</file>
@@ -24065,7 +24118,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\system\debug\sys_debug.h</file>
-         <hash>9ee0362649aa389b355ecff1ce0e64d124f8f83eda7e40a0c5195ee099c1a0ff</hash>
+         <hash>4162d9e1fab93b8b33f6c8a24726f5dc287ea05c31e3ab984c3c920c725d0882</hash>
       </entry>
       <entry>
          <file>..\src\config\default\system\fs\fat_fs\file_system\ff.c</file>
